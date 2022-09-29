@@ -110,6 +110,7 @@ class App extends React.Component {
             },
             songMarkedForDeletion: prevState.songMarkedForDeletion
         }), () => {
+
             this.db.mutationUpdateList(this.state.currentList);
         });
     }
@@ -139,6 +140,7 @@ class App extends React.Component {
             },
             songMarkedForDeletion: prevState.songMarkedForDeletion
         }), () => {
+
             this.db.mutationUpdateList(this.state.currentList);
         });
     }
@@ -200,6 +202,7 @@ class App extends React.Component {
             sessionData: prevState.sessionData,
             songMarkedForDeletion: null
         }), () => {
+
             this.db.mutationUpdateList(cu);
         });
     }
@@ -218,6 +221,7 @@ class App extends React.Component {
             sessionData: prevState.sessionData,
             songMarkedForDeletion: null
         }), () => {
+
             this.db.mutationUpdateList(cu);
         });
     }
@@ -239,6 +243,7 @@ class App extends React.Component {
             sessionData: prevState.sessionData,
             songMarkedForDeletion: null
         }), () => {
+
             this.db.mutationUpdateList(cu);
         });
     }
@@ -292,6 +297,7 @@ class App extends React.Component {
             // THE TRANSACTION STACK IS CLEARED
             let list = this.db.queryGetList(key);
             list.name = newName;
+            
             this.db.mutationUpdateList(list);
             this.db.mutationUpdateSessionData(this.state.sessionData);
         });
@@ -384,7 +390,7 @@ class App extends React.Component {
         let transaction = new DeleteSong_Transaction(this, this.state.songMarkedForDeletionid, this.state.songMarkedForDeletion);
         this.tps.addTransaction(transaction);
     }
-    
+
     editSongTransaction = (n) => {
         this.hideEditSongModal();
         if(this.state.songMarkedForDeletion.title !== n.title || this.state.songMarkedForDeletion.artist !== n.artist
