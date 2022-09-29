@@ -12,13 +12,14 @@ export default class DeleteListModal extends Component {
                 class="modal" 
                 id="delete-list-modal" 
                 data-animation="slideInOutLeft">
+                    <div class = "modal-dialog">
                     <div class="modal-root" id='verify-delete-list-root'>
                         <div class="modal-north">
                             Delete playlist?
                         </div>
                         <div class="modal-center">
                             <div class="modal-center-content">
-                                Are you sure you wish to permanently delete the {name} playlist?
+                                Are you sure you wish to permanently delete the <span>{name}</span> playlist?
                             </div>
                         </div>
                         <div class="modal-south">
@@ -33,6 +34,7 @@ export default class DeleteListModal extends Component {
                                 onClick={hideDeleteListModalCallback}
                                 value='Cancel' />
                         </div>
+                    </div>
                     </div>
             </div>
         );

@@ -14,10 +14,10 @@ export default class EditToolbar extends React.Component {
         let redoid = "redo-button";
         let closeid = "close-button";*/
         
-        //if (!canAddSong) addSongClass += "-disabled";
-        //if (!canUndo) undoClass += "-disabled";
-        //if (!canRedo) redoClass += "-disabled";
-        //if (!canClose) closeClass += "-disabled";
+        if (!canAddSong) addSongClass += "-disabled";
+        if (!canUndo) undoClass += "-disabled";
+        if (!canRedo) redoClass += "-disabled";
+        if (!canClose) closeClass += "-disabled";
 
         /*if (!canAddSong) addSongid += "-disabled";
         if (!canUndo) undoid += "-disabled";
