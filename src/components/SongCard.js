@@ -1,5 +1,4 @@
 import React from "react";
-
 export default class SongCard extends React.Component {
     constructor(props) {
         super(props);
@@ -41,6 +40,7 @@ export default class SongCard extends React.Component {
         event.preventDefault();
         let target = event.target;
         let targetId = target.id;
+        if(targetId !==""){
         targetId = targetId.substring(target.id.indexOf("-") + 1);
         let sourceId = event.dataTransfer.getData("song");
         sourceId = sourceId.substring(sourceId.indexOf("-") + 1);
@@ -51,11 +51,23 @@ export default class SongCard extends React.Component {
         }));
 
         // ASK THE MODEL TO MOVE THE DATA
-        this.props.moveCallback(sourceId, targetId);
+        this.props.moveCallback(sourceId, targetId);}
     }
 
     getItemNum = () => {
         return this.props.id.substring("playlist-song-".length);
+    }
+
+    handleDeleteSong = (event) => {
+        event.stopPropagation();
+        let id = this.getItemNum()-1;
+        this.props.deleteListCallback(id,this.props.song);
+    }
+
+    handleClick = (event) => {
+        if (event.detail === 2) {
+            this.props.renameListCallback(this.props.song);
+        }
     }
 
     render() {
@@ -66,18 +78,30 @@ export default class SongCard extends React.Component {
         if (this.state.draggedTo) {
             itemClass = "playlister-song-dragged-to";
         }
+        let n = num +'. '
         return (
+            
             <div
+            
                 id={'song-' + num}
                 className={itemClass}
+                onClick={this.handleClick}
                 onDragStart={this.handleDragStart}
                 onDragOver={this.handleDragOver}
                 onDragEnter={this.handleDragEnter}
                 onDragLeave={this.handleDragLeave}
                 onDrop={this.handleDrop}
                 draggable="true"
-            >
-                {song.title} by {song.artist}
+            >   
+                {n}  <a href={"https://www.youtube.com/watch?v="+song.youTubeId}> {song.title} by {song.artist}</a>
+                
+                <input
+                        type="button"
+                        id={"delete-song-" + num}
+                        className="song-card-button"
+                        onClick={this.handleDeleteSong}
+                        
+                        value={"X" } />
             </div>
         )
     }
