@@ -57,7 +57,11 @@ export default class SongCard extends React.Component {
     getItemNum = () => {
         return this.props.id.substring("playlist-song-".length);
     }
-
+    handleClick = (event) => {
+        if (event.detail === 2) {
+            this.props.renameListCallback(this.props.song);
+        }
+    }
     render() {
         const { song } = this.props;
         let num = this.getItemNum();
@@ -71,6 +75,7 @@ export default class SongCard extends React.Component {
             <div
                 id={'song-' + num}
                 className={itemClass}
+                onClick={this.handleClick}
                 onDragStart={this.handleDragStart}
                 onDragOver={this.handleDragOver}
                 onDragEnter={this.handleDragEnter}
