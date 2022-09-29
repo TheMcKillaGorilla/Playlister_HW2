@@ -64,12 +64,12 @@ export default class SongCard extends React.Component {
         this.props.deleteListCallback(id,this.props.song);
     }
 
-    /*handleClick = (event) => {
+    handleClick = (event) => {
         if (event.detail === 2) {
             this.props.renameListCallback(this.props.song);
         }
-    }*/
-    //onClick={this.handleClick}
+    }
+    
 
     render() {
         const { song } = this.props;
@@ -86,7 +86,7 @@ export default class SongCard extends React.Component {
             
                 id={'song-' + num}
                 className={itemClass}
-                
+                onClick={this.handleClick}
                 onDragStart={this.handleDragStart}
                 onDragOver={this.handleDragOver}
                 onDragEnter={this.handleDragEnter}
