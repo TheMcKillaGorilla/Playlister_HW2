@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Tangerine');
-
 :root {
   /* 
         FIRST WE'LL DEFINE OUR SWATCHES, i.e. THE COMPLEMENTARY
@@ -17,7 +15,6 @@
 
 body {
   background-color: var(--swatch-foundation);
-  font-family: 'Tangerine',cursive;
 }
 
 #root {
@@ -31,7 +28,6 @@ body {
   display:grid;
   grid-template-columns: 30% 70%;
   grid-template-rows: 10% 10% 70% 10%;
-  font-family: 'Tangerine',cursive;
 }
 
 /* 
@@ -51,7 +47,7 @@ body {
   background-image: linear-gradient(to bottom,         
   #b8b808, #636723);
   color: white;
-  font-size: 45pt;
+  font-size: 54pt;
   border-color: black;
   border-width: 2px;
   border-style: solid;
@@ -98,7 +94,6 @@ body {
   background-color: var(--swatch-accent);
 }
 
-
 #playlister-statusbar {
   grid-column: 1 / 3;
   grid-row: 4 / 5;
@@ -113,16 +108,13 @@ body {
   float:left;
 }
 
-.list-card, .selected-list-card, .unselected-list-card, .playlister-song, .playlister-song-dragged-to {
-  font-size: 30pt;
+.list-card, .selected-list-card, .unselected-list-card {
+  font-size: 18pt;
   margin: 10px;
   padding: 20px;
   border-radius: 25px;
 }
 
-.playlister-song, .playlister-song-dragged-to{
-  background-color: var(--swatch-complement);
-}
 .unselected-list-card:hover {
   cursor: pointer;
   background-color: var(--swatch-contrast);
@@ -141,17 +133,6 @@ body {
 .list-card-button {
   float:right;
   font-size:18pt;
-}
-
-.song-card-button {
-  float:right;
-  font-size:18pt;
-  
-}
-
-.toolbar-button-disabled {
-  opacity: 0.25; 
-  cursor: not-allowed;
 }
 
 .playlister-button, .playlister-button-disabled {
@@ -173,8 +154,9 @@ body {
 }
 
 .playlister-song, .playlister-song-dragged-to { 
-  display: inline-block;
-  font-size: 30pt;
+  display:flex;
+  align-items: center;
+  font-size: 24pt;
   height:20%;
 }
 
@@ -191,7 +173,7 @@ input {
   left: 0;
   right: 0;
   bottom: 0;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   background: var(--black);
@@ -200,12 +182,8 @@ input {
   visibility: hidden;
   opacity: 0;
   transition: all 0.35s ease-in;
-  
 }
-.modal-dialog{
-  width: 800px;
-  display:flex;
-}
+
 .modal.is-visible {
   visibility: visible;
   opacity: 1;
@@ -261,23 +239,8 @@ span {
 .modal-center-content {
   grid-column: 1 / 3;
   grid-row: 1 / 4;
-  display: inline-block;
-  font-size: 30pt;
-  
 }
-.modal-center-content-a {
-  grid-column: 1 / 3;
-  grid-row: 1 / 4;
-  display: inline-block;
-  font-size: 30pt;
-  text-align: right;
-}
-.modal-a{
-  display: inline-flex;
-}
-.modal-i{
-  text-align: left;
-}
+
 .modal-prompt {  
   font-size:28pt;
   font-weight: bold;
