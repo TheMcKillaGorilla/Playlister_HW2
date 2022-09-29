@@ -367,20 +367,24 @@ class App extends React.Component {
         this.setStateWithUpdatedList(list);
     }
     // THIS FUNCTION ADDS A MoveSong_Transaction TO THE TRANSACTION STACK
+
     addMoveSongTransaction = (start, end) => {
         if(start !== end){
         let transaction = new MoveSong_Transaction(this, start, end);
         this.tps.addTransaction(transaction);}
     }
+
     addSongTransaction = () => {
         let transaction = new AddSong_Transaction(this);
         this.tps.addTransaction(transaction);
     }
+
     deleteSongTransaction = () => {
         this.hideDeleteSongModal();
         let transaction = new DeleteSong_Transaction(this, this.state.songMarkedForDeletionid, this.state.songMarkedForDeletion);
         this.tps.addTransaction(transaction);
     }
+    
     editSongTransaction = (n) => {
         this.hideEditSongModal();
         if(this.state.songMarkedForDeletion.title !== n.title || this.state.songMarkedForDeletion.artist !== n.artist
@@ -497,12 +501,15 @@ class App extends React.Component {
     
     }
 
+
     componentDidMount(){
         document.addEventListener('keydown',this.keydownHandler);
     }
+
     componentWillUnmount(){
         document.removeEventListener('keydown',this.keydownHandler);
     }
+
     keydownHandler = (e) =>{
         if(e.keyCode===90 && e.ctrlKey) {
             if(this.tps.hasTransactionToUndo()){
@@ -521,6 +528,7 @@ class App extends React.Component {
             }
         }
     }
+
 
     render() {
         let canAddSong = this.state.currentList !== null;
